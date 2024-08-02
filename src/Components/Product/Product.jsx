@@ -11,7 +11,7 @@ const Product = ({product})=> {
     const {userIsLoggedIn } = useContext(authContext);
 
     async function addProductToCart(productId){
-        let {data} = await axios.post('https://route-ecommerce.onrender.com/api/v1/cart' ,{
+        let {data} = await axios.post('https://ecommerce.routemisr.com/api/v1/cart' ,{
             productId
         },
         {

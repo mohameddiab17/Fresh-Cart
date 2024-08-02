@@ -23,13 +23,13 @@ const ProductDetails = ()=> {
 
     async function getProductDetails(){
         setIsLoading(true);
-        let {data} = await axios.get("https://route-ecommerce.onrender.com/api/v1/products/"+id);
+        let {data} = await axios.get("https://ecommerce.routemisr.com/api/v1/products/"+id);
         setProductDetails(data.data);
         setIsLoading(false)
     }
 
     async function addProductToCart(productId){
-        let {data} = await axios.post('https://route-ecommerce.onrender.com/api/v1/cart' ,{
+        let {data} = await axios.post('https://ecommerce.routemisr.com/api/v1/cart' ,{
             productId
         },
         {

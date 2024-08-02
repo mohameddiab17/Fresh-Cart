@@ -48,7 +48,7 @@ const Cart = ()=> {
         reverseButtons: true
       }).then(async(result) => {
         if (result.isConfirmed) {
-          let {data} = await axios.delete('https://route-ecommerce.onrender.com/api/v1/cart/' + productId ,{
+          let {data} = await axios.delete('https://ecommerce.routemisr.com/api/v1/cart/' + productId ,{
         headers:{
           token:localStorage.getItem('token')
         }
@@ -84,7 +84,7 @@ const Cart = ()=> {
         confirmButtonText: "Yes, clear it!"
       }).then(async(result) => {
         if (result.isConfirmed) {
-          let {data} = await axios.delete('https://route-ecommerce.onrender.com/api/v1/cart',{
+          let {data} = await axios.delete('https://ecommerce.routemisr.com/api/v1/cart',{
         headers:{
           token:localStorage.getItem('token')
         }
