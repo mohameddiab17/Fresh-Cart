@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 
-const CartProduct = ({cartProduct , removeProductFromCart ,updateCartProductCount}) => {
-
-  const [count , setCount] = useState(cartProduct.count);
+const CartProduct = ({
+  cartProduct,
+  removeProductFromCart,
+  updateCartProductCount,
+}) => {
+  const [count, setCount] = useState(cartProduct.count);
 
   return (
     <div className="cart-product shadow rounded-2 my-3 p-sm-3">
@@ -30,11 +33,32 @@ const CartProduct = ({cartProduct , removeProductFromCart ,updateCartProductCoun
           </p>
         </div>
         <div className="col-md-2">
-          <button onClick={()=>removeProductFromCart(cartProduct.product._id)} className="btn text-danger">Remove</button>
+          <button
+            onClick={() => removeProductFromCart(cartProduct.product._id)}
+            className="btn text-danger"
+          >
+            Remove
+          </button>
           <div className="d-flex align-items-center">
-            <button onClick={()=>{updateCartProductCount(cartProduct.product._id , count - 1); setCount(count - 1)}} className="btn bg-main text-white mx-2">-</button>
+            <button
+              onClick={() => {
+                updateCartProductCount(cartProduct.product._id, count - 1);
+                setCount(count - 1);
+              }}
+              className="btn bg-main text-white mx-2"
+            >
+              -
+            </button>
             <span>{count}</span>
-            <button onClick={()=>{updateCartProductCount(cartProduct.product._id , count + 1); setCount(count + 1)}} className="btn bg-main text-white mx-2">+</button>
+            <button
+              onClick={() => {
+                updateCartProductCount(cartProduct.product._id, count + 1);
+                setCount(count + 1);
+              }}
+              className="btn bg-main text-white mx-2"
+            >
+              +
+            </button>
           </div>
         </div>
       </div>

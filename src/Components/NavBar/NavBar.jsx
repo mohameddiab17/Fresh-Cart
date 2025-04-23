@@ -23,7 +23,7 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/home">
           <img src={logo} alt="Frash Cart" />
         </a>
         <button

@@ -8,9 +8,9 @@ import { Helmet } from "react-helmet";
 
 export default function Login() {
   const [errorMsg, setErrorMsg] = useState("");
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const {setUserIsLoggedIn} = useContext(authContext)
+  const { setUserIsLoggedIn } = useContext(authContext);
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -20,8 +20,8 @@ export default function Login() {
         "Enter Valid Email"
       ),
     password: Yup.string()
-    .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/)
-    .required("Password is required"),
+      .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/)
+      .required("Password is required"),
   });
 
   const {
@@ -34,8 +34,8 @@ export default function Login() {
     isValid,
   } = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "try@try.com",
+      password: "Test1234",
     },
     onSubmit: async () => {
       setErrorMsg("");
@@ -46,13 +46,13 @@ export default function Login() {
           values
         );
         if (data.message === "success") {
-          localStorage.setItem("token" , data.token);
+          localStorage.setItem("token", data.token);
           setUserIsLoggedIn(true);
-          if(window.location.pathname === '/login'){
-            navigate("/home")
-          }else{
-            navigate(window.location.pathname)
-          };
+          if (window.location.pathname === "/login") {
+            navigate("/home");
+          } else {
+            navigate(window.location.pathname);
+          }
         }
       } catch (error) {
         setErrorMsg(error.response.data.message);
@@ -64,9 +64,9 @@ export default function Login() {
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <title>Login | Fresh-Cart</title>
-    </Helmet>
+      </Helmet>
       <div className="w-50 m-auto my-5">
         <h1>Login Now :</h1>
         {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
@@ -99,7 +99,7 @@ export default function Login() {
           {errors.password && touched.password && (
             <p className="alert alert-warning">{errors.password}</p>
           )}
-          <Link to={'/forgetpassword'}  >Forget Password ?</Link>
+          <Link to={"/forgetpassword"}>Forget Password ?</Link>
 
           {isLoading ? (
             <button
@@ -107,7 +107,6 @@ export default function Login() {
               type="button"
               className="btn bg-main px-2 text-white ms-auto d-block"
             >
-              
               <i className="fas fa-spin fa-spinner px-3"></i>
             </button>
           ) : (
